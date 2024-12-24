@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Ffeatures\u002F[feature]","\u002Froles\u002F[role]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
