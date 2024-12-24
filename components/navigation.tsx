@@ -8,6 +8,7 @@ import { Menu } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigation = [
   {
@@ -60,12 +61,17 @@ export function Navigation() {
               <span className="sr-only">Open navigation menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-[300px] p-0" title="Navigation Menu">
+          <SheetContent
+            side="left"
+            className="w-[300px] p-0"
+            title="Navigation Menu"
+          >
             <NavItems pathname={pathname} setOpen={setOpen} />
           </SheetContent>
         </Sheet>
-        <div className="flex-1">
+        <div className="flex flex-1 items-center justify-between">
           <h2 className="text-lg font-semibold">ParrotAnalyzer</h2>
+          <ThemeToggle />
         </div>
       </div>
 
@@ -74,15 +80,22 @@ export function Navigation() {
         <NavItems pathname={pathname} />
       </aside>
     </div>
-  )
+  );
 }
 
 function NavItems({ pathname, setOpen }: { pathname: string; setOpen?: (open: boolean) => void }) {
   return (
     <ScrollArea className="h-full py-6">
       <div className="px-4 py-2">
-        <h2 className="text-2xl font-bold tracking-tight">ParrotAnalyzer</h2>
-        <p className="text-sm text-muted-foreground">Documentation</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight">
+              ParrotAnalyzer
+            </h2>
+            <p className="text-sm text-muted-foreground">Documentation</p>
+          </div>
+          <ThemeToggle />
+        </div>
       </div>
       <div className="space-y-4">
         {navigation.map((section) => (
@@ -107,5 +120,5 @@ function NavItems({ pathname, setOpen }: { pathname: string; setOpen?: (open: bo
         ))}
       </div>
     </ScrollArea>
-  )
+  );
 }

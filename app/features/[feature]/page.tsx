@@ -1,55 +1,28 @@
 import { PageHeader } from "@/components/page-header"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { notFound } from "next/navigation"
+import { features, type FeatureType } from "@/lib/data/features";
 
-const features = {
-  "geofencing": {
-    title: "Geofencing and Location Tracking",
-    description: "Advanced real-time location monitoring and management",
-    details: [
-      "Real-time geographical monitoring",
-      "Customizable geofence zones",
-      "Automated entry/exit logging",
-      "Compliance and security alerts"
-    ]
-  },
-  "shift-management": {
-    title: "Shift Management System",
-    description: "Comprehensive shift planning and management solution",
-    details: [
-      "Dynamic shift creation",
-      "Automated scheduling",
-      "Attendance tracking",
-      "Overtime calculation",
-      "Shift swap and management workflows"
-    ]
-  },
-  "expense-management": {
-    title: "Expense Management",
-    description: "Streamlined expense tracking and approval system",
-    details: [
-      "Multi-category expense tracking",
-      "Photographic receipt upload",
-      "Approval workflow",
-      "Expense analytics and reporting",
-      "Integration with payroll systems"
-    ]
-  }
+export function generateStaticParams() {
+  return Object.keys(features).map((feature) => ({
+    feature,
+  }));
 }
 
-export default function FeaturePage({ params }: { params: { feature: string } }) {
-  const feature = features[params.feature as keyof typeof features]
-  
+export default function FeaturePage({
+  params,
+}: {
+  params: { feature: FeatureType };
+}) {
+  const feature = features[params.feature];
+
   if (!feature) {
-    notFound()
+    notFound();
   }
 
   return (
     <div className="container space-y-8 py-8">
-      <PageHeader
-        title={feature.title}
-        description={feature.description}
-      />
+      <PageHeader title={feature.title} description={feature.description} />
 
       <Card>
         <CardHeader>
@@ -64,5 +37,5 @@ export default function FeaturePage({ params }: { params: { feature: string } })
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
