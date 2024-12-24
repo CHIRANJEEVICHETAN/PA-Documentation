@@ -32,10 +32,12 @@ export default function Home() {
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
-        <Button variant="outline" size="lg">
-          <GitFork className="mr-2 h-4 w-4" />
-          Fork on GitHub
-        </Button>
+        <Link href="https://github.com/CHIRANJEEVICHETAN/ParrotAnalyzer">
+          <Button variant="outline" size="lg">
+            <GitFork className="mr-2 h-4 w-4" />
+            Fork on GitHub
+          </Button>
+        </Link>
       </div>
 
       {/* Key Features Grid */}
