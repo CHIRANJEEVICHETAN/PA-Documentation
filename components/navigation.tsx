@@ -70,7 +70,7 @@ export function Navigation() {
           </SheetContent>
         </Sheet>
         <div className="flex flex-1 items-center justify-between">
-          <h2 className="text-lg font-semibold">ParrotAnalyzer</h2>
+          <h2 className="text-lg font-medium">ParrotAnalyzer</h2>
           <ThemeToggle />
         </div>
       </div>
@@ -89,9 +89,7 @@ function NavItems({ pathname, setOpen }: { pathname: string; setOpen?: (open: bo
       <div className="px-4 py-2">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-bold tracking-tight">
-              ParrotAnalyzer
-            </h2>
+            <h2 className="text-2xl font-medium">ParrotAnalyzer</h2>
             <p className="text-sm text-muted-foreground">Documentation</p>
           </div>
           <ThemeToggle />
@@ -100,7 +98,7 @@ function NavItems({ pathname, setOpen }: { pathname: string; setOpen?: (open: bo
       <div className="space-y-4">
         {navigation.map((section) => (
           <div key={section.title} className="px-3 py-2">
-            <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+            <h2 className="mb-2 px-4 text-lg font-medium text-foreground">
               {section.title}
             </h2>
             <div className="space-y-1">
@@ -109,7 +107,7 @@ function NavItems({ pathname, setOpen }: { pathname: string; setOpen?: (open: bo
                   key={item.href}
                   asChild
                   variant={pathname === item.href ? "secondary" : "ghost"}
-                  className="w-full justify-start"
+                  className="w-full justify-start font-normal"
                   onClick={() => setOpen?.(false)}
                 >
                   <Link href={item.href}>{item.title}</Link>

@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/page-header"
+import { PageContainer } from "@/components/layout/page-container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { notFound } from "next/navigation"
 
@@ -20,11 +21,8 @@ export default function RolePage({ params }: { params: { role: string } }) {
   }
 
   return (
-    <div className="container space-y-8 py-8">
-      <PageHeader
-        title={role.title}
-        description={role.description}
-      />
+    <PageContainer>
+      <PageHeader title={role.title} description={role.description} />
 
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
@@ -53,6 +51,6 @@ export default function RolePage({ params }: { params: { role: string } }) {
           </CardContent>
         </Card>
       </div>
-    </div>
-  )
+    </PageContainer>
+  );
 }

@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/page-header"
+import { PageContainer } from "@/components/layout/page-container";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { notFound } from "next/navigation"
 import { features, type FeatureType } from "@/lib/data/features";
@@ -21,7 +22,7 @@ export default function FeaturePage({
   }
 
   return (
-    <div className="container space-y-8 py-8">
+    <PageContainer>
       <PageHeader title={feature.title} description={feature.description} />
 
       <Card>
@@ -36,6 +37,6 @@ export default function FeaturePage({
           </ul>
         </CardContent>
       </Card>
-    </div>
+    </PageContainer>
   );
 }

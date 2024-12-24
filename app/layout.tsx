@@ -4,7 +4,10 @@ import { Inter } from 'next/font/google'
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/navigation"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap", // Optimize font loading
+});
 
 export const metadata: Metadata = {
   title: 'ParrotAnalyzer Documentation',
